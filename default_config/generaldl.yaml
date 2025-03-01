@@ -1,0 +1,56 @@
+# overall
+exp_parent_path: ./experiments
+exp_name: generaldl_example_run
+
+# model
+model_name: generaldl
+kfold: 5
+num_iters: 16000
+max_epochs: 100
+patience: 10
+learning_rate: 0.0001
+batch_size: 32
+warmup_ratio: 0.06
+max_norm: 5.0
+dln_weight: 0.125
+dln_activation: linear
+load_pretrained_weights: true
+freeze_layers: null
+freeze_layers_reversed: false
+
+# data
+smiles_col: smiles
+target_col: label
+split_group_col: scaffold
+split_method: scaffold
+num_tasks: 4
+data_paths:
+- data/train_set/chemists_preference_train_val.csv
+- data/train_set/approved+ftt_train_val.csv
+- data/train_set/approved+zinc_train_val.csv
+- data/train_set/clinical_milestone_train_val.csv
+is_pair_data:
+- true
+- false
+- false
+- false
+do_resample:
+- false
+- true
+- false
+- true
+resample_target_size:
+- null
+- 4000
+- null
+- 4000
+val_resample_target_size:
+- null
+- null
+- null
+- null
+dataset_weights:
+- 1
+- 1
+- 1
+- 1

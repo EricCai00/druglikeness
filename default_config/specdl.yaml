@@ -1,0 +1,34 @@
+# overall
+exp_parent_path: ./experiments
+exp_name: specdl_example_run
+
+# model
+model_name: specdl
+kfold: 5
+num_iters: 4000
+max_epochs: 100
+patience: 10
+learning_rate: 0.0001
+batch_size: 32
+warmup_ratio: 0.06
+max_norm: 5.0
+load_pretrained_weights: true
+freeze_layers: null
+freeze_layers_reversed: false
+
+# data
+smiles_col: smiles
+target_col: label
+split_group_col: scaffold
+split_method: scaffold
+num_tasks: 1
+data_paths:
+- data/train_set/approved+ftt_train_val.csv
+is_pair_data:
+- false
+do_resample:
+- true
+resample_target_size:
+- 4000
+dataset_weights:
+- 1
